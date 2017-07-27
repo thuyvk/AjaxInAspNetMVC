@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Demo Ajax Asp.Net MVC</h2>
+
+@using (Ajax.BeginForm("ShowDetails", "Ajax", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divResult", InsertionMode = InsertionMode.Replace, LoadingElementId = "loadingElement" }))
+{
+    <table>
+        <tr>
+            <td>Product Code:</td>
+            <td>
+                @Html.Editor("ProductCode", new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+            <td>
+                <button type="submit" class="btn btn-primary">Get</button>
+            </td>
+        </tr>
+    </table>
+}
+<hr />
+<div id="loadingElement" style="display:none">
+    Please wait...
+</div>
+
+<div id="divResult">
+
+</div>
+
+@section scripts{
+
+}

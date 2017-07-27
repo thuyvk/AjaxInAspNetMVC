@@ -1,0 +1,35 @@
+﻿@model AjaxInMvc.Models.Product
+
+<div>
+    <h4>Product Detail</h4>
+    <hr />
+    @if (Model == null)
+    {
+        <p class="text-danger">Invalid product code</p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <td>Product Code:</td>
+                <td>
+                    @Model.ProdCode
+                </td>
+            </tr>
+            <tr>
+                <td>Product Name:</td>
+                <td>
+                    @Model.ProdName
+                </td>
+            </tr>
+            <tr>
+                <td>Product Quanlity:</td>
+                <td>
+                    @Model.ProdQty
+                </td>
+            </tr>
+        </table>
+    }
+    
+</div>
+
