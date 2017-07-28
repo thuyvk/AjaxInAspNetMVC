@@ -1,0 +1,19 @@
+﻿@model List<AjaxInMvc.Models.Product>
+
+<table class="table">
+    <tr>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Product Quality</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProdCode</td>
+            <td>@item.ProdName</td>
+            <td>@item.ProdQty</td>
+        </tr>
+    }
+
+
+</table>
