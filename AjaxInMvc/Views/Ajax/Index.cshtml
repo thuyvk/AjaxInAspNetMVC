@@ -3,15 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Demo Ajax Asp.Net MVC</h2>
+<h2 class="text-center">Demo Ajax Asp.Net MVC</h2>
+<hr />
+<h3>1. Ajax.BeginForm</h3>
 
 @using (Ajax.BeginForm("ShowDetails", "Ajax", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divResult", InsertionMode = InsertionMode.Replace, LoadingElementId = "loadingElement" }))
 {
     <table>
         <tr>
-            <td>Product Code:</td>
             <td>
-                @Html.Editor("ProductCode", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.Editor("ProductCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Product Code" } })
             </td>
             <td>
                 <button type="submit" class="btn btn-primary">Get</button>
@@ -19,15 +20,29 @@
         </tr>
     </table>
 }
-<hr />
-<div id="loadingElement" style="display:none">
-    Please wait...
+
+@*Product Detail Display Here*@
+<div id="loadingElement" style="display:none; color:#f60">
+    Loading product detail...
 </div>
 
-<div id="divResult">
+<div id="divResult"></div>
 
+<h3>2. Ajax.ActionLink </h3>
+<p>
+    @Ajax.ActionLink("Get All Product", "GetAllProducts", "Ajax", new AjaxOptions
+{
+    UpdateTargetId = "divResultAll",
+    OnBegin = "",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "GET",
+    LoadingElementId = "loadingElement2",
+    OnSuccess = "",
+    Confirm = "Do you want to get all product?"
+}, new { @class = "btn btn-warning" })
+</p>
+@*Product List Display Here*@
+<div id="loadingElement2" style="display:none; color:#f60">
+    Loading products...
 </div>
-
-@section scripts{
-
-}
+<div id="divResultAll"></div>

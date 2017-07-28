@@ -30,13 +30,21 @@ namespace AjaxInMvc.Controllers
             return View();
         }
 
+        [HttpPost]
         public PartialViewResult ShowDetails()
         {
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(3000); //DEMO ONLY
             string code = Request.Form["ProductCode"];
             var products = InitData();
             Product objView = products.Where(x => x.ProdCode == code).FirstOrDefault();
             return PartialView("_ShowDetails", objView);
+        }
+
+        public PartialViewResult GetAllProducts()
+        {
+            System.Threading.Thread.Sleep(3000); //DEMO ONLY
+            List<Product> prodList = InitData();
+            return PartialView("_GetAllProducts", prodList);
         }
     }
 }

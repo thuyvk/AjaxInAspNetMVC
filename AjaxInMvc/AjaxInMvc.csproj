@@ -190,6 +190,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Ajax\Index.cshtml" />
     <Content Include="Views\Ajax\_ShowDetails.cshtml" />
+    <Content Include="Views\Ajax\_GetAllProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
